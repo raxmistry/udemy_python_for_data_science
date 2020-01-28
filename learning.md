@@ -98,3 +98,47 @@ df.groupby('col').describe().transpose('col')
 
 
 
+## concatenation, merge, joining
+
+pd.concat([df1, df2, df3])
+- can also join on axis
+
+pd.merge()
+
+left.join(right) - join on index instead of column.
+
+## Operations
+
+df['col'].unique()
+df['col'].nunique()
+df['col'].value_counts()
+
+
+df['col1'].apply(my_func)
+
+df['col1'].apply(lambda x: x &ast 2)
+
+df.columns
+df.index 
+df.sort_values()
+
+df.isnull()
+
+## Data input and output
+
+** Libraries to install
+sqlalchemy
+lxml
+html5lib
+BeautifulSoup4
+xlrd
+
+pd.read_csv('file_in_dir.csv')
+
+df.to_csv('another_file.csv')
+
+from sqlalchemy import create_engine
+
+engine = create_engine('sqlite:///:memory;')
+
+
