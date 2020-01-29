@@ -36,6 +36,11 @@ df.iloc[2]
 df.loc['B', 'Y']
 df.loc[['A','B'],['W', 'Y']]
 
+sum(booleans) - only adds true values
+
+
+dataframe.info attribute and .info() methods exist
+
 
 ## conditional selection
 
@@ -113,6 +118,8 @@ df['col'].unique()
 df['col'].nunique()
 df['col'].value_counts()
 
+ecom['AM or PM'].value_counts() - counts occurrences of different values in that column
+
 
 df['col1'].apply(my_func)
 
@@ -140,5 +147,10 @@ df.to_csv('another_file.csv')
 from sqlalchemy import create_engine
 
 engine = create_engine('sqlite:///:memory;')
+
+
+#Matplotlib
+
+www.matplotlib.org
 
 
