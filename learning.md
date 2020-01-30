@@ -133,7 +133,7 @@ df.isnull()
 
 ## Data input and output
 
-** Libraries to install
+- Libraries to install
 sqlalchemy
 lxml
 html5lib
@@ -152,5 +152,57 @@ engine = create_engine('sqlite:///:memory;')
 #Matplotlib
 
 www.matplotlib.org
+
+
+
+import matplotlib.pyplot as plt
+
+%matplotlib inline 
+plt.show() - if you're not using jupyter notebook
+
+##Functional 
+plt.plot(x,y)
+
+plt.xlabel | ylabel | title 
+
+plt.subplot() - multiple plots on same canvas
+
+##Object-oriented approach 
+
+fig = plt.figure() - blank canvas
+axes = fig.add_axes([0.1, 0.1, 0.8, 0.8]) - relative location on blank canvas: left, bottom, width, height
+axes.plot(x,y)
+
+
+fix, axes = plt.subplots(nrows=1, ncols=2) - 2 subplots on one canvas
+
+axes - list of plots
+
+plt.tight_layout() - prevents overlapping on plots
+
+
+fig.savefig('mypic.png')
+
+
+ax.plot(x,y, labels='')
+
+ax.legend(loc=1)
+
+
+##Colours
+
+ax.plot(x,y, color='color', linewidth=2, alpha=0.5, linestyle='--')
+ RGB hex codes #FFAA11
+
+
+
+##Markers
+ax.plot(x,y, marker='o', markersize=10)
+
+ax.set_xlim([0,1]) - limit which portion of graph is shown
+
+
+## Special plot types
+Probably use Seaborn (better suited?)
 
 
