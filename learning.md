@@ -206,3 +206,100 @@ ax.set_xlim([0,1]) - limit which portion of graph is shown
 Probably use Seaborn (better suited?)
 
 
+
+#Seaborn
+
+Statistical visualisation library
+http://seaborn.pydata.org/index.html
+
+
+## Distribution Plots
+
+import seaboarn as sns
+%matplotlib inline
+
+tips = sns.load_dataset('tips')
+
+-- histogram
+sns.distplot(tips['total_bill'])
+
+-- univariant
+sns.displot(tips['total_bill'], kde=False, bins=40) - bins - how detail the histogram should be. 
+
+sns.kdeplot() - does just kde plot, and skips histogram
+
+-- bi variant
+sns.jointplot(x='total_bill', y='tip', data=tips, kind='hex')
+ --  default kind = scatter, hex, reg, kde
+
+
+sns.pairplot(tips) - draws graphs against all numerical data
+
+sns.pairplot(tips, hue='sex', palette='coolwarm')
+-- hue and plaette allow colorisation of category data (non-numerical)
+
+sns.rugplot(tips['total_bill'])
+
+kde = kernel density estimation
+
+
+
+## Categorical plots
+
+- non numerical 
+
+sns.barplot(x='sex', y='total_bill', data=tips)
+sns.barplot(x='sex', y='total_bill', data=tips, estimator=np.std)
+-- std = standard deviation from numpy
+
+sns.countplot(x='sex', data=tips) 
+-- just counts per category
+
+sns.boxplot(x='day', y='total_bill', tips, hue='smoker')
+-- quartiles
+
+sns.violinplot(x='day', y='total_bill', tips)
+-- plots box plot data plus kde plot sideways 
+
+
+sns.violinplot(x='day', y='total_bill', tips, hue='sex', split=True)
+
+
+
+sns.stripplot(x='day', y='total_bill', tips)
+sns.stripplot(x='day', y='total_bill', tips, jitter=True)
+-- shows density a bit better
+-- can add hue and split
+
+
+sns.swarmplot(x='day', y='total_bill', data= 'tips')
+- combo of violin and striplot
+
+sns.factorplot(x='day', y='total_bill', data=tips, kind='bar')
+-- generalisaiton of other plots
+-- kind = bar, violin, scatter etc.
+
+## Matrix plots
+
+-- heat maps
+
+Data should be in a matrix form - need variables on columns and rows
+
+tc = tips.corr() - matrix form of data
+sns.heatmap(tc)
+sns.heatmap(tc, annot=True, cmap='coolwarm')
+
+
+fp = flights.pivot_table(index='month', columns='year', values='passengers')
+
+sns.heatmap(fp)
+sns.heatmap(fp, cmap='magma', linecolor='white', linewidths=3)
+
+
+-- Cluster maps
+
+sns.clustermap(hp)
+sns.clustermap(hp, cmap='coolwarm', standar_scale=1)
+-- clusters rows and columns based on similarity
+-- columns and rows can be out of order, similar placed next to each other.
+-- can normalise with standard_scale
