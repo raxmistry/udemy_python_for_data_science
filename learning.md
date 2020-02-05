@@ -303,3 +303,53 @@ sns.clustermap(hp, cmap='coolwarm', standar_scale=1)
 -- clusters rows and columns based on similarity
 -- columns and rows can be out of order, similar placed next to each other.
 -- can normalise with standard_scale
+
+
+
+## Grids
+
+g = sns.PairGrid(iris) -- creates empty grids, more control.
+g.map(plt.scatter)
+
+g.map_diag(sns.distplot)
+g.map_upper(plt.scatter)
+g.map_lower(sns.kdeplot)
+
+
+g = sns.FacetGrid(data=tips, col='time', row='smoker')
+g.map(sns.distplot, 'total_bill')
+g.map(sns.scatterplot, 'total_bill', 'tip')
+
+
+
+## Regression plots
+
+sns.lmplot(x='total_bill', y='tip', tips, hue='sex')
+sns.lmplot(x='total_bill', y='tip', tips, hue='sex', markers=['o', 'v'], scatter_kws{'s': 100})
+
+-- scatter_kws takes in a dictionary and calls matplotlib underneath
+
+
+
+sns.lmplot(x='total_bill', y='tip', tips, col='sex', row='time', aspect=0.6, size=8)
+-- breaks it into facets
+
+
+
+## Style and colour
+
+sns.set_style('white') -- ticks, darkgrid, whitegrid
+sns.countplot(x='sex', data=tips)
+
+sns.despine( ) - removes top and right spines
+
+
+plt.figure(figsize=(12,3))
+-- matplotlib figure size and aspect will affect seaborn
+
+sns.set_context('poster', font_scale=3) -- notebook option
+
+
+other palette options on matplotlib colormaps 
+
+
