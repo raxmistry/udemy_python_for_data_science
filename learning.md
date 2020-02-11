@@ -389,4 +389,86 @@ df2['a'].plot.density()
 
 
 
+# Plotly and Cufflinks
+
+pip install plotly
+pip install cufflinks
+
+
+cufflinks connects plotly with pandas
+plotly - interactive visualisation?
+
+from plotly import __version__
+print(__version__)
+
+Need > 1.9 required
+
+import cufflinks as cf
+
+from plotly.offline import download_plotlyjs,init_notebook_mode,plot,iplot
+
+init_notebook_mode(connected=True)
+
+cf.go_offline()
+
+df.iplot() (instead of pandas df.plot())
+
+df.iplot(kind='scatter', x='A', y='B', mode='markers')
+
+df.iplot(kind='scatter', x='A', y='B', mode='markers', size=20)
+
+df.iplot(kind='bar', x='Categories', y='B')
+
+df.sum().iplot(kind='bar')
+
+df.iplot(kind='box')
+
+df3.iplot(kind='surface', colorscale='rdylbu')
+
+df['A'].iplot(kind='hist', bins=50)
+df.iplot(kind='hist', bins=50)
+
+
+df[['A', 'B']].iplot(kind='spread') -- useful for financial data
+
+df.iplot(kind='bubble', x='A', y='B', size='C')
+
+df.scatter_matrix()
+
+For documentation look at cufflinks github page:
+https://github.com/santosjorge/cufflinks
+
+Financial analysis = cufflinks, ta.py
+
+# Geographical plotting
+
+plotly going to be used
+but can use matplotlib basemap extension as an alternative
+
+
+## Choropleth maps
+
+import plotly.plotly as py
+from plotly.offline import download_plotlyjs,init_notebook_mode,plot,iplot
+init_notebook_mode(connected=True)
+
+-- create a dict or hashmap of key values
+data = dict( type = 'chloropeth', 
+locations = ['AZ', 'CA', 'NY'],
+locationmode = 'USA-states',
+colorscale = 'Portland',
+text = ['text 1', 'text 2', 'text 3'],
+z= [1.0, 2.0, 3.0],
+colorbar = {'title': 'color bar title '} )
+
+layout = dict(geo={'scope': 'usa'})
+import plotly.graph_objs as ?go
+
+choromap = go.Figure(data = [data], layout = layout)
+
+iplot(choromap)
+
+
+Global Choropleth Plots
+
 
