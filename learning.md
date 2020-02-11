@@ -353,3 +353,40 @@ sns.set_context('poster', font_scale=3) -- notebook option
 other palette options on matplotlib colormaps 
 
 
+# Pandas built-in data visualisation
+
+df1 = pd.read_csv('df1')
+
+-- 3 different ways
+df1['A'].hist(bins=30)
+
+df1['A'].plot(kind='hist', bins=30)
+
+df1['A'].plot.hist()
+
+
+
+
+df2.plot.area()
+df2.plot.area(alpha)
+
+df2.plot.bar(stacked=True)
+
+
+df1.plot.line(x=df1.index, y='B', figsize=(12,3), lw=1)
+
+
+-- all matplotlib args avaialble here 
+
+df1.plot.scatter(x='A', y='B', c='C') - c color , cmap
+df1.plot.scatter(x='A', y='B', s=df1['C']\*100) - size
+
+
+df.plot.hexbin(x='a', x='b', gridsize=25, cmap='coolwarm')
+
+df2['a'].plot.kde()
+df2['a'].plot.density()
+
+
+
+
