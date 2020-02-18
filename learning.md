@@ -591,9 +591,63 @@ download -
 scikit-learn algorithm cheat sheet
 
 
+## Intro to Linear Regression 
+
+
+Just a quick note, in Late September 2016, SciKit Learn 0.18 was released and there was a slight change to the code. With 0.18 the train_test_split function is now imported from model_selection instead of cross_validation. This is already reflected in the latest notes, but the videos show the older method. You can still use the older method, you'll just get a warning message notifying you of the change. So for short, the statement:
+
+from sklearn.cross_validation import train_test_split
+
+has been changed to :
+
+from sklearn.model_selection import train_test_split
+
+The same has also happened for GridSearchCV (we'll talk about this much later).
 
 
 
+df.info()
+df.describe()
+df.columns
+
+
+X = df[['', '', column names]]
+y = df['Price'] - thing we're trying to predict.
+
+split data into training and test
+
+from sklearn.cross_validation import train_test_split
+
+X_train, X_test, y_train, y_test =train_test_split(x, y, test_size=0,4, random_state=101)
+
+import linear regression model
+
+lm = LinearRegression()
+lm.fit(X_train, y_train)
+print(lm.intercept_)
+lm.coef_
+
+
+
+cdf = df.DataFram(lm.coef_, X.columns, columns=['Coeff'])
+
+
+#Predictions
+
+predictions = lm.predict(X_test)
+
+plt.scatter(y_test, predictions)
+- as we are comparing test data to training data, should be closely aligned.
+
+sns.distplot((y_test - predictions))
+- should be normally distributed
+
+
+from sklearn import metrics
+
+metrics.mean_absolute_error(y_test, predictions)
+metrics.mean_squared_error(y_test, predictions)
+np.sqrt(metrics.mean_squared_error(y_test, predictions))
 
 
 
