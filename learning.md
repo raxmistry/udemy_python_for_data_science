@@ -475,3 +475,125 @@ Global Choropleth Plots
 # Data Capstone Project
 
 
+
+# Part 2 - Machine Learning 
+
+## Supervised learning
+
+algorithms trainined using labelled data
+labeled examples
+
+
+learns with inputs and correct outputs and modifies model.
+
+ML Process
+
+Data Acquisition
+Data cleaning
+Training data & Test data
+Use training data fit and build model
+Model testing
+Adjust model parameters
+Model deployment
+
+Data split into 3 sets
+- Training data
+- Validation data
+   -- to adjust model hyperparameters
+- Test Data 
+   -- final performance metrics 
+   -- once used this data, not allowed to adjust parameters again.
+
+
+# Evaluating performance - classification problems
+Key metrics
+- accuracy
+- recall
+- precision
+- F1-Score
+
+Binary classification - only 2 classes
+
+Model evaluation 
+- in real world not all correct or incorrect matches have the same weighting
+
+- confusion matrix
+
+Accuracy in classification problems os the number of correct predictions made by the mode divided by the total number of predictions. 
+- useful when target classes are well balanced - labels equally representative
+- unbalanced classes - accuracy not that useful
+
+
+Recall is ability of a model to find all relevant cases withing a dataset. 
+Number of true positives divided by the number of true positives plus the number of false negatives. 
+
+Precision ability of a classification model to identify only the relevant data points. 
+number of true positives divided by the number of true positives plus the number of false positives.
+
+Often trade-off between recall and precision
+
+While recall expresses the ability to find all relevant instaces in a dataset, precision expresses the proportion of the data points our model says were relevant that actually were relelvant. 
+
+F1 - Score 
+optimal blend of precision and recall 
+harmonic mean of precision and recall taking both metrics into account 
+
+
+F1 = 2\*(precision\*recall)/(precision+recall)
+
+harmonic mean punishes extreme differences between precision and recall
+
+Confusion matrix 
+correctly classified vs incorrectly classified in form of confusion matrix
+
+False positive - type 1 error
+False Negative - type 11 error 
+
+further metrics can be calculated off the confusion matrix
+
+Check wikipedia
+
+Good enough accuracy ? - depends on context
+
+
+
+## Model performance evaluation - regression error metrics
+
+Regression is a task when a model attempts to predict continuous values (unlike categorical values which is classification)
+
+New metrics needed for regression 
+
+Mean Absolute Error - differences between prediction and true value.
+Does not punish large errors
+
+
+Mean Squared Error - difference between true and predicted values, squared
+- punishes large errors 
+- squares units as well - which makes models difficult to read
+
+Therefore
+
+Root Mean Squared Error - square root of Mean Squared Error
+(RMSE)
+
+Compare error metric to average value of label to understand performance of metric
+
+## Machine learning with Python
+
+Scikit Learn package
+
+conda install scikit-learn
+
+
+has family of models
+
+download - 
+scikit-learn algorithm cheat sheet
+
+
+
+
+
+
+
+
