@@ -629,7 +629,7 @@ lm.coef_
 
 
 
-cdf = df.DataFram(lm.coef_, X.columns, columns=['Coeff'])
+cdf = pd.DataFram(lm.coef_, X.columns, columns=['Coeff'])
 
 
 #Predictions
@@ -648,6 +648,23 @@ from sklearn import metrics
 metrics.mean_absolute_error(y_test, predictions)
 metrics.mean_squared_error(y_test, predictions)
 np.sqrt(metrics.mean_squared_error(y_test, predictions))
+
+
+-- Interpreting the coefficients:
+
+Holding all other features fixed, a 1 unit increase in Avg. Session Length is associated with an increase of 25.98 total dollars spent.
+Holding all other features fixed, a 1 unit increase in Time on App is associated with an increase of 38.59 total dollars spent.
+Holding all other features fixed, a 1 unit increase in Time on Website is associated with an increase of 0.19 total dollars spent.
+Holding all other features fixed, a 1 unit increase in Length of Membership is associated with an increase of 61.27 total dollars spent.
+
+
+# Bias Variance Trade-off
+
+
+Bias-variance trade-off is the point where we are adding just noise by adding model complexity (flexibility).
+Test errors can go up, despite training errors going down.
+Model after the bias trade-off begins to overfit.
+
 
 
 
