@@ -667,4 +667,76 @@ Model after the bias trade-off begins to overfit.
 
 
 
+# Logistic Regression
+
+Is a method for classification. Determining if some data falls in a specific classification.
+
+Binary classification. 
+
+Cannot use linear regression on a binary group. 
+
+Logitic regression curve can only be between zero and one. 
+Sigmoid (aka Logistic) Function. 
+
+Take Linear Regression Solution and place it in Sigmoid function?
+Why?
+Read Section 4-4.3 for understanding
+
+Cutoff point to determine which class something falls into. e.g. 0.5 (aka 50%)
+
+Model evaluation. 
+- Confusion matrix to evaluate classfication model
+- True positives, True Negative, False Positives, False Negatives
+
+Accuracy : (TP + TN) / total = %
+Error rate (Misclassification) : (FP + FN) / total = %
+
+Type 1 - false positive
+Type 2 - false negative 
+
+
+## Logitic regression with python
+
+heatmap to see missing data
+train.isnull( ) - true if it is null
+sns.heatmap(train.isnull(), yticklabels=False, cbar=False, cmap='viridis')
+
+sns.set_style('whitegrid')
+
+sns.countplot(x='Survived', data=train)
+sns.countplot(x='Survived', data=train, hue='Sex')
+
+sns.distplot(train['Age'].dropna(), kde=False, bins=30)
+
+train.info()
+
+sns.countplot(x='SibSp', data=train)
+
+train['Fare'].hist(bins=40, figsize(10,4))
+
+import cufflinks as cf
+
+cf.go_offline()
+train['Fare'].iplot(kind='hist', bins=50)
+
+
+- Cleaning our data
+
+Find average age byh passenger class
+
+sns.boxplot(x='Pclass', y='Age', data=train)
+
+Imputation - filling in missing data
+
+train['Age'] = train[['Age', 'Pclass']].apply(impute_age, axis=1)
+axis = 1 to apply to columns?
+
+train.drop('Cabin', axis=1, inplace=True)
+-- drop rows that have nulls
+train.dropna(inplace=True)
+
+
+
+
+
 
