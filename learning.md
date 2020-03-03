@@ -737,6 +737,30 @@ train.dropna(inplace=True)
 
 
 
+Convert categorical values to "dummy values" to allow ML algoritm to calculate. E.g. Male/Female becomes 0/1
+
+sex = pd.get_dummies(train['Sex'], drop_first=True)
+
+
+train = pd.concat([train, sex, embark], axis=1)
+
+
+from sklearn.linear_model import LogisticRegression
+
+logmodel = LogisticRegression()
+
+logmodel.fit(X_train, y_train)
+
+predictions = logmodel.predict(X_test)
+
+
+
+
+Classification report
+
+from sklearn.metrics import classification_report
+
+print(classification_report(y_test, predictions))
 
 
 
