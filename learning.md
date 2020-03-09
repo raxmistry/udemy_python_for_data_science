@@ -764,3 +764,53 @@ print(classification_report(y_test, predictions))
 
 
 
+# K Nearest Neighbours
+
+The value of k can change the classificaiton of a new point
+
+The higher the k value the smoother the cutoff, at cost of mislabelling
+
+Pros 
+- Simple
+- Trainraning is trivial
+- works with any number of classes
+- easy to add more data
+- Few Parameters
+-- K
+-- Distance Metric
+
+Cons 
+- high prediction cost (large data sets worse) - sorting
+- not good with high dimensinoal data
+- Categorical features don't work well 
+
+
+KNN with Python 
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+
+scaler.fit(df.drop('TARGE CLSS', axis = 1))
+
+scaled_features = scaler.transform 
+- Performs standardisation on value to a standar scale?
+
+df_feat = pd.Dataframe(scaled_features, columns=df.columns[:-1])
+
+
+Starttart with k = 1 .. 
+
+from sklear.neighbours import KNeighboursClassifier
+
+knn = KNeighboursClassifier(n_neighbours=1)
+
+knn.fit
+
+knn.predict
+
+confusion_matrix and classification_report 
+
+
+Loop over possible k values to use elbow method to figure out best k
+
+
